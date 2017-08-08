@@ -1,0 +1,2 @@
+# altersocks
+Alternative to shadowsocks
