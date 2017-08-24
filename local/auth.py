@@ -1,10 +1,6 @@
 import socket
 import hashlib as hl
-import binascii as ba
 import struct
-from HTTPHandler import HTTPHandler
-import socketserver
-
 
 class Connection():
     def __init__(self, server_address, port):
@@ -38,15 +34,3 @@ class Connection():
                 self.listenLocal(9999)
             else:
                 print('Authentication Failed')
-
-    def listenLocal(self, port=9999):
-        Handler = HTTPHandler
-        socketserver.TCPServer.allow_reuse_address = True
-        httpd = socketserver.TCPServer(("", port), Handler)
-        print("Local Proxy Started at Port ", port)
-        httpd.serve_forever()
-
-
-d = Connection('127.0.0.1', 8080)
-#d.authenticate(method = 1, username = 'testUser', password = 'defaultpasswd')
-d.listenLocal(9999)
