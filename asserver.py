@@ -39,8 +39,6 @@ class Connection():
 			passwordHash = data[16:]
 			if self.auth(usernameHash, passwordHash):
 				c.send(b'Authentication Successful')
-				c.close()
-
-
+				
 d = Connection()
 d.start()
