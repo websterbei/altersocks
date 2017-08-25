@@ -64,8 +64,14 @@ def handle_tcp(sock, addr):
     host_ip = socket.gethostbyname(host_addr)
 
     # connect
+    client_socket.settimeout(6)
+    print("Connecting to", host_ip, ":",  port)
     client_socket.connect((host_ip, port))
-    client_socket.settimeout(1)
+    print("connected")
+    client_socket.send(request)
+    print("sent msg")
+
+
 
     # receive
     while True:
